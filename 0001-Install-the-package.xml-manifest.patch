@@ -1,0 +1,24 @@
+From fc3d4f7f587099f3d90297350172ae260d59887d Mon Sep 17 00:00:00 2001
+From: Scott K Logan <logans@cottsay.net>
+Date: Fri, 22 Mar 2024 20:42:47 -0500
+Subject: [PATCH] Install the package.xml manifest
+
+---
+ rpm/ros-rolling-rqt-srv.spec | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rpm/ros-rolling-rqt-srv.spec b/rpm/ros-rolling-rqt-srv.spec
+index 0036211a6c69..3b0cad1175d8 100644
+--- a/rpm/ros-rolling-rqt-srv.spec
++++ b/rpm/ros-rolling-rqt-srv.spec
+@@ -54,6 +54,7 @@ A Python GUI plugin for introspecting available ROS service types.
+ 
+ %install
+ %py3_install -- --prefix "%{bloom_prefix}"
++install -m0644 -p -D package.xml %{buildroot}%{bloom_prefix}/share/%{pkg_name}/package.xml
+ 
+ 
+ %if 0%{?with_tests}
+-- 
+2.44.0
+
